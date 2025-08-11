@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages
 
-# Deploys the built site to GitHub Pages
+# Automatically deploys the built site to GitHub Pages
 on:
   push:
     branches: [main]
