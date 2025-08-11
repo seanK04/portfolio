@@ -6,7 +6,7 @@ import ExperienceDetailPage from "./components/ExperienceDetailPage";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/portfolio">
       <Navbar />
       <div>
         <Routes>
