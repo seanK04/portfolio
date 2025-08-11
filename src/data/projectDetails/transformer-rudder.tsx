@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
 import ContentImage from "../../components/ContentImage";
@@ -299,7 +299,7 @@ const TransformerRudderContent: React.FC = () => {
               href="https://github.com/seanK04"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200"
+              className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200"
             >
               <svg
                 className="w-5 h-5 mr-2"
