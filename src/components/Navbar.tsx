@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Navbar: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const isHomePage = location.pathname === "/" || location.pathname === "/portfolio/" || location.pathname === "/portfolio";
+  const isHomePage = location.pathname === "/";
 
   // Handle hash scrolling when navigating from detail pages
   useEffect(() => {
@@ -26,12 +26,17 @@ const Navbar: React.FC = () => {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
-        // Update URL with hash
-        window.history.pushState(null, '', `#${sectionId}`);
       }
     } else {
-      // If on detail page, navigate to home page with hash
-      navigate(`/#${sectionId}`);
+      // If on detail page, navigate to home page then scroll
+      navigate('/');
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
     }
   };
 

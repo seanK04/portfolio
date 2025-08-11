@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import ProjectDetailPage from "./components/ProjectDetailPage";
@@ -6,7 +6,7 @@ import ExperienceDetailPage from "./components/ExperienceDetailPage";
 
 function App() {
   return (
-    <Router basename="/portfolio">
+    <Router>
       <Navbar />
       <div>
         <Routes>
