@@ -22,10 +22,8 @@ const ContentImage: React.FC<ContentImageProps> = ({
     quarter: "w-full md:w-1/4 max-w-sm",
   };
 
-  // Prepend base URL to image src if it starts with /
-  const imageSrc = src.startsWith('/') 
-    ? `${import.meta.env.BASE_URL}${src.slice(1)}`
-    : src;
+  // Use src directly since we're at the root domain
+  const imageSrc = src;
 
   return (
     <div className={`my-6 flex justify-center ${className}`}>
