@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const isHomePage = location.pathname === "/" || location.pathname === "/portfolio/" || location.pathname === "/portfolio";
 
   // Handle hash scrolling when navigating from detail pages
   useEffect(() => {
@@ -28,7 +28,9 @@ const Navbar: React.FC = () => {
       }
     } else {
       // If on detail page, navigate to home page with hash
-      window.location.href = `/#${sectionId}`;
+      // Use the base path from vite config
+      const basePath = import.meta.env.BASE_URL || '/';
+      window.location.href = `${basePath}#${sectionId}`;
     }
   };
 
@@ -38,7 +40,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-center">
           <div className="flex space-x-8">
           <a
-            href={isHomePage ? "#home" : "/#home"}
+            href={isHomePage ? "#home" : `${import.meta.env.BASE_URL}#home`}
             onClick={(e) => {
               if (isHomePage) {
                 e.preventDefault();
@@ -50,7 +52,7 @@ const Navbar: React.FC = () => {
             Home
           </a>
           <a
-            href={isHomePage ? "#about-me" : "/#about-me"}
+            href={isHomePage ? "#about-me" : `${import.meta.env.BASE_URL}#about-me`}
             onClick={(e) => {
               if (isHomePage) {
                 e.preventDefault();
@@ -62,7 +64,7 @@ const Navbar: React.FC = () => {
             About Me
           </a>
           <a
-            href={isHomePage ? "#experience" : "/#experience"}
+            href={isHomePage ? "#experience" : `${import.meta.env.BASE_URL}#experience`}
             onClick={(e) => {
               if (isHomePage) {
                 e.preventDefault();
@@ -74,7 +76,7 @@ const Navbar: React.FC = () => {
             Experience
           </a>
           <a
-            href={isHomePage ? "#projects" : "/#projects"}
+            href={isHomePage ? "#projects" : `${import.meta.env.BASE_URL}#projects`}
             onClick={(e) => {
               if (isHomePage) {
                 e.preventDefault();
